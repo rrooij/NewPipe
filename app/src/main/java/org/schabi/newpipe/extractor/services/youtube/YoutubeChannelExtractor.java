@@ -41,8 +41,7 @@ public class YoutubeChannelExtractor extends ChannelExtractor {
     @Override
     public int getSubscribeCount() throws ParsingException {
         try {
-            return Integer.parseInt(doc.select(".subscribed").first().attr("title")
-                    .replaceAll("\\.|,", ""));
+            return Integer.parseInt(doc.select(".subscribed").first().attr("title").replaceAll("\\s+",""));
         } catch (Exception ex) {
             throw new ParsingException(String.format(exceptionString, "subscribe count"));
         }
