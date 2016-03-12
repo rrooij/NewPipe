@@ -113,7 +113,7 @@ public class YoutubeStreamPreviewInfoExtractor implements StreamPreviewInfoExtra
     public String getThumbnailUrl() throws ParsingException {
         try {
             String url;
-            Element te = item.select("div[class=\"yt-thumb video-thumb\"]").first()
+            Element te = item.select(".yt-thumb.video-thumb").first()
                     .select("img").first();
             url = te.attr("abs:src");
             // Sometimes youtube sends links to gif files which somehow seem to not exist
