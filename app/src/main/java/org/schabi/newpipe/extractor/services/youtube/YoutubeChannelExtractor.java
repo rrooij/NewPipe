@@ -61,7 +61,7 @@ public class YoutubeChannelExtractor extends ChannelExtractor {
             previewInfo.thumbnail_url = previewExtractor.getThumbnailUrl();
             previewInfo.title = previewExtractor.getTitle();
             previewInfo.upload_date = previewExtractor.getUploadDate();
-            previewInfo.uploader = previewExtractor.getUploader();
+            previewInfo.uploader = getAccountName();
             previewInfo.webpage_url = previewExtractor.getWebPageUrl();
             previewInfo.view_count = previewExtractor.getViewCount();
             streamPreviews.add(previewInfo);
