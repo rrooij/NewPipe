@@ -1,5 +1,6 @@
 package org.schabi.newpipe.extractor.services.youtube;
 
+import org.schabi.newpipe.extractor.ChannelExtractor;
 import org.schabi.newpipe.extractor.ExtractionException;
 import org.schabi.newpipe.extractor.Downloader;
 import org.schabi.newpipe.extractor.StreamExtractor;
@@ -42,6 +43,18 @@ public class YoutubeService extends StreamingService {
         serviceInfo.name = "Youtube";
         return serviceInfo;
     }
+
+    public ChannelExtractor getChannelExtractorInstance(String url, Downloader downloader)
+            throws ExtractionException, IOException {
+        StreamUrlIdHandler urlIdHandler = new YoutubeStreamUrlIdHandler();
+        if(urlIdHandler.acceptUrl(url)) {
+            return new YouTubeChannelExtractor(url, downloader, getServiceId());
+        }
+        else {
+            throw new IllegalArgumentException("supplied String is not a valid Youtube URL");
+        }
+    }
+
     @Override
     public StreamExtractor getExtractorInstance(String url, Downloader downloader)
             throws ExtractionException, IOException {
