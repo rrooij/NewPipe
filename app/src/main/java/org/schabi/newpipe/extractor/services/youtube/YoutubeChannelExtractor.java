@@ -17,12 +17,12 @@ import java.util.Vector;
 /**
  * Created by robin on 3/12/16.
  */
-public class YouTubeChannelExtractor extends ChannelExtractor {
+public class YoutubeChannelExtractor extends ChannelExtractor {
 
     private final Document doc;
     private String exceptionString;
 
-    public YouTubeChannelExtractor(String pageUrl, Downloader dl, int serviceId) throws IOException {
+    public YoutubeChannelExtractor(String pageUrl, Downloader dl, int serviceId) throws IOException {
         super(pageUrl, dl, serviceId);
         String pageContent = dl.download(pageUrl);
         doc = Jsoup.parse(pageContent);

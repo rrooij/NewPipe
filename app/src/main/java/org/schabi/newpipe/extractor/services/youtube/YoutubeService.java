@@ -48,7 +48,7 @@ public class YoutubeService extends StreamingService {
             throws ExtractionException, IOException {
         StreamUrlIdHandler urlIdHandler = new YoutubeStreamUrlIdHandler();
         if(urlIdHandler.acceptUrl(url)) {
-            return new YouTubeChannelExtractor(url, downloader, getServiceId());
+            return new YoutubeChannelExtractor(url, downloader, getServiceId());
         }
         else {
             throw new IllegalArgumentException("supplied String is not a valid Youtube URL");
